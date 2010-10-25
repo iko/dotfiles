@@ -1,8 +1,9 @@
 syntax enable
 
-"colorscheme scite
-"colorscheme Dark
-colorscheme anotherdark
+"colorscheme anotherdark
+colorscheme molokai
+
+let mapleader = ","
 
 nmap <F2> :bn<CR>
 nmap <F3> :bp<CR>
@@ -22,9 +23,12 @@ inoremap [] []<Esc>i
 
 inoremap "" ""<Esc>i
 inoremap '' ''<Esc>i
+inoremap <> <><Esc>i
 
-nnoremap <leader>d "=strftime("%d.%m %Y")<CR>p
+"nnoremap <leader>d "=strftime("%d.%m %Y")<CR>p
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
+
+nmap <leader>d :Bclose<CR>
 
 set expandtab
 retab
@@ -51,11 +55,13 @@ filetype plugin indent on
 filetype plugin on
 
 runtime macros/matchit.vim
-runtime /home/iko/.vim/set_utf8.vim 
+runtime /home/iko/.vim/set_utf8.vim
 
 au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.ejs set filetype=xhtml
 
+let g:vimchant_spellcheck_lang = 'fi'
+let g:molokai_original = 0
 let NERDTreeWinPos = 1
 

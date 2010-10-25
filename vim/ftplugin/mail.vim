@@ -1,0 +1,3 @@
+set textwidth=72
+/^$
+
