@@ -64,4 +64,5 @@ au BufNewFile,BufRead *.ejs set filetype=xhtml
 let g:vimchant_spellcheck_lang = 'fi'
 let g:molokai_original = 0
 let NERDTreeWinPos = 1
+let NERDTreeShowBookmarks = 1
 
