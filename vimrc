@@ -8,7 +8,6 @@ let mapleader = ","
 nmap <F2> :bn<CR>
 nmap <F3> :bp<CR>
 nmap <F4> :NERDTreeToggle<CR>
-map <leader>p :set invpaste<CR>
 " Grabbed from http://rffr.de/latex_tips
 map  :w!:!clear; echo Making Postscript % ...; pdflatex %; xdvi %<.dvi& 
 
@@ -25,10 +24,11 @@ inoremap "" ""<Esc>i
 inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
 
-"nnoremap <leader>d "=strftime("%d.%m %Y")<CR>p
+nmap <leader>d :Bclose<CR>
+map <leader>p :set invpaste<CR>
+map <leader>b :GitBlame<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
-nmap <leader>d :Bclose<CR>
 
 set expandtab
 retab
