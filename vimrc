@@ -63,6 +63,9 @@ au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.ejs set filetype=xhtml
 
+" Don't comment automatically
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 let g:vimchant_spellcheck_lang = 'fi'
 let g:molokai_original = 0
 let NERDTreeWinPos = 1
