@@ -5,6 +5,8 @@ colorscheme molokai
 
 let mapleader = ","
 
+map <F1> <Esc>
+imap <F1> <Esc>
 nmap <F2> :bn<CR>
 nmap <F3> :bp<CR>
 nmap <F4> :NERDTreeToggle<CR>
