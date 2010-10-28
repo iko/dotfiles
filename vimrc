@@ -27,6 +27,7 @@ inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
 
 nmap <leader>d :Bclose<CR>
+nmap <leader>s :Sscratch<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :GitBlame<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
