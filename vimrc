@@ -25,7 +25,10 @@ inoremap [] []<Esc>i
 inoremap "" ""<Esc>i
 inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
+inoremap %% %  %<Esc>hi
 
+"Remove trailing whitespace
+nmap <leader>q :%s/\s\+$//<CR>
 nmap <leader>d :Bclose<CR>
 nmap <leader>s :Sscratch<CR>
 map <leader>p :set invpaste<CR>
@@ -42,14 +45,14 @@ set smartcase
 set smartindent
 set autoindent
 set list
-set listchars=trail:·
+set lcs=trail:·,tab:\|\ 
 set scrolloff=3
 set hidden
 set nostartofline
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set statusline=%<%f\ %h%m%r%=%t\ \|\ %-14.(%l,%c%V%)\ %P
-set laststatus=2 
+set laststatus=2
 set ruler
 set t_Co=256
 set guioptions=
