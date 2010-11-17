@@ -33,6 +33,7 @@ nmap <leader>d :Bclose<CR>
 nmap <leader>s :Sscratch<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :GitBlame<CR>
+map <leader>a :Ack ''<Left>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
 
@@ -74,4 +75,5 @@ let g:vimchant_spellcheck_lang = 'fi'
 let g:molokai_original = 0
 let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
+let g:CommandTMatchWindowAtTop = 1
 
