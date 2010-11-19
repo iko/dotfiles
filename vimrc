@@ -1,6 +1,5 @@
 syntax enable
 
-"test
 "colorscheme anotherdark
 colorscheme molokai
 
