@@ -67,6 +67,7 @@ runtime /home/iko/.vim/set_utf8.vim
 au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.ejs set filetype=xhtml
+au! BufRead,BufNewFile *.json setfiletype json
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
