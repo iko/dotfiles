@@ -36,6 +36,7 @@ map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>st :Gstatus<CR>
 map <leader>a :Ack ''<Left>
+nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
 
