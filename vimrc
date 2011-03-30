@@ -29,10 +29,12 @@ inoremap %% %  %<Esc>hi
 
 "Remove trailing whitespace
 nmap <leader>q :%s/\s\+$//<CR>
+nmap <leader>; :s/;\?$/;/<CR>:nohl<CR>``
 nmap <leader>d :Bclose<CR>
 nmap <leader>s :Sscratch<CR>
 map <leader>p :set invpaste<CR>
-map <leader>b :GitBlame<CR>
+map <leader>b :Gblame<CR>
+map <leader>st :Gstatus<CR>
 map <leader>a :Ack ''<Left>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
@@ -52,7 +54,7 @@ set hidden
 set nostartofline
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set statusline=%<%f\ %h%m%r%=%t\ \|\ %-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %{fugitive#statusline()}%h%m%r%=%t\ \|\ %-14.(%l,%c%V%)\ %P
 set laststatus=2
 set ruler
 set t_Co=256
