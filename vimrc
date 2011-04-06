@@ -1,6 +1,7 @@
 syntax enable
 
 "colorscheme anotherdark
+"test
 colorscheme molokai
 
 let mapleader = ","
