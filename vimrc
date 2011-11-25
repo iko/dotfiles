@@ -1,8 +1,9 @@
 syntax enable
 
+let g:solarized_termcolors=256
+colorscheme solarized
 "colorscheme anotherdark
-"test
-colorscheme molokai
+"colorscheme molokai
 
 let mapleader = ","
 
@@ -32,7 +33,7 @@ inoremap %% %  %<Esc>hi
 nmap <leader>q :%s/\s\+$//<CR>
 nmap <leader>; :s/;\?$/;/<CR>:nohl<CR>``
 nmap <leader>d :Bclose<CR>
-nmap <leader>s :Sscratch<CR>
+nmap <leader>s :ScratchOpen<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>st :Gstatus<CR>
@@ -61,6 +62,7 @@ set laststatus=2
 set ruler
 set t_Co=256
 set guioptions=
+set nofoldenable
 
 filetype plugin indent on
 filetype plugin on
@@ -82,3 +84,4 @@ let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
 let g:CommandTMatchWindowAtTop = 1
 
+iab ture true

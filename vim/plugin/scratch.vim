@@ -1,110 +1,86 @@
-" File: scratch.vim
-" Author: Yegappan Lakshmanan (yegappan AT yahoo DOT com)
-" Version: 1.0
-" Last Modified: June 3, 2003
+" scratch - Emacs like scratch buffer
+" Version: 0.1+
+" Copyright (C) 2007 kana <http://whileimautomaton.net/>
+" License: MIT license  {{{
+"     Permission is hereby granted, free of charge, to any person obtaining
+"     a copy of this software and associated documentation files (the
+"     "Software"), to deal in the Software without restriction, including
+"     without limitation the rights to use, copy, modify, merge, publish,
+"     distribute, sublicense, and/or sell copies of the Software, and to
+"     permit persons to whom the Software is furnished to do so, subject to
+"     the following conditions:
 "
-" Overview
-" --------
-" You can use the scratch plugin to create a temporary scratch buffer to store
-" and edit text that will be discarded when you quit/exit vim. The contents
-" of the scratch buffer are not saved/stored in a file.
+"     The above copyright notice and this permission notice shall be included
+"     in all copies or substantial portions of the Software.
 "
-" Installation
-" ------------
-" 1. Copy the scratch.vim plugin to the $HOME/.vim/plugin directory. Refer to
-"    the following Vim help topics for more information about Vim plugins:
-"
-"       :help add-plugin
-"       :help add-global-plugin
-"       :help runtimepath
-"
-" 2. Restart Vim.
-"
-" Usage
-" -----
-" You can use the following command to open/edit the scratch buffer:
-"
-"       :Scratch
-"
-" To open the scratch buffer in a new split window, use the following command:
-"
-"       :Sscratch
-"
-" When you close the scratch buffer window, the buffer will retain the
-" contents. You can again edit the scratch buffer by openeing it using one of
-" the above commands. There is no need to save the scatch buffer.
-"
-" When you quit/exit Vim, the contents of the scratch buffer will be lost.
-" You will not be prompted to save the contents of the modified scratch
-" buffer.
-"
-" You can have only one scratch buffer open in a single Vim instance. If the
-" current buffer has unsaved modifications, then the scratch buffer will be
-" opened in a new window
-"
-" ****************** Do not modify after this line ************************
-if exists('loaded_scratch') || &cp
-    finish
+"     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+"     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+"     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+"     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+"     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+"     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+" }}}
+"{{{1
+
+if exists('g:loaded_scratch')
+  finish
 endif
-let loaded_scratch=1
 
-" Scratch buffer name
-let ScratchBufferName = "__Scratch__"
 
-" ScratchBufferOpen
-" Open the scratch buffer
-function! s:ScratchBufferOpen(new_win)
-    let split_win = a:new_win
 
-    " If the current buffer is modified then open the scratch buffer in a new
-    " window
-    if !split_win && &modified
-        let split_win = 1
-    endif
 
-    " Check whether the scratch buffer is already created
-    let scr_bufnum = bufnr(g:ScratchBufferName)
-    if scr_bufnum == -1
-        " open a new scratch buffer
-        if split_win
-            exe "new " . g:ScratchBufferName
-        else
-            exe "edit " . g:ScratchBufferName
-        endif
-    else
-        " Scratch buffer is already created. Check whether it is open
-        " in one of the windows
-        let scr_winnum = bufwinnr(scr_bufnum)
-        if scr_winnum != -1
-            " Jump to the window which has the scratch buffer if we are not
-            " already in that window
-            if winnr() != scr_winnum
-                exe scr_winnum . "wincmd w"
-            endif
-        else
-            " Create a new scratch buffer
-            if split_win
-                exe "split +buffer" . scr_bufnum
-            else
-                exe "buffer " . scr_bufnum
-            endif
-        endif
-    endif
-endfunction
 
-" ScratchMarkBuffer
-" Mark a buffer as scratch
-function! s:ScratchMarkBuffer()
-    setlocal buftype=nofile
-    setlocal bufhidden=hide
-    setlocal noswapfile
-    setlocal buflisted
-endfunction
 
-autocmd BufNewFile __Scratch__ call s:ScratchMarkBuffer()
 
-" Command to edit the scratch buffer in the current window
-command! -nargs=0 Scratch call s:ScratchBufferOpen(0)
-" Command to open the scratch buffer in a new split window
-command! -nargs=0 Sscratch call s:ScratchBufferOpen(1)
 
+" Interfaces  "{{{1
+
+command! -bar -nargs=0 ScratchOpen  call scratch#open()
+command! -bar -nargs=0 ScratchClose  call scratch#close()
+command! -bang -bar -nargs=0 -range ScratchEvaluate
+      \ call scratch#evaluate_linewise(<line1>, <line2>, '<bang>' != '!')
+
+
+noremap <silent> <Plug>(scratch-open)  :<C-u>ScratchOpen<Return>
+noremap <silent> <Plug>(scratch-close)  :<C-u>ScratchClose<Return>
+noremap <silent> <Plug>(scratch-evaluate)  :ScratchEvaluate<Return>
+noremap <silent> <Plug>(scratch-evaluate!)  :ScratchEvaluate!<Return>
+
+
+
+
+
+
+
+
+" Variables  "{{{1
+
+if !exists('g:scratch_buffer_name')
+  let g:scratch_buffer_name = '*Scratch*'
+endif
+
+if !exists('g:scratch_show_command')
+  let g:scratch_show_command = 'topleft split | hide buffer'
+endif
+
+
+
+
+
+
+
+
+" Fin.  "{{{1
+
+let g:loaded_scratch = 1
+
+
+
+
+
+
+
+
+" __END__  "{{{1
+" vim: foldmethod=marker
