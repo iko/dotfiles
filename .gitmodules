@@ -28,3 +28,6 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/Kwbd.vim"]
+	path = vim/bundle/Kwbd.vim
+	url = https://github.com/rgarver/Kwbd.vim.git

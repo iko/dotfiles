@@ -31,7 +31,7 @@ inoremap %% %  %<Esc>hi
 "Remove trailing whitespace
 nmap <leader>q :%s/\s\+$//<CR>
 nmap <leader>; :s/;\?$/;/<CR>:nohl<CR>``
-nmap <leader>d :Bclose<CR>
+nmap <leader>d <Plug>Kwbd
 nmap <leader>s :ScratchOpen<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
