@@ -1,4 +1,5 @@
 call pathogen#infect()
+set nocompatible
 syntax enable
 
 let g:solarized_termcolors=256
@@ -28,15 +29,12 @@ inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
 inoremap %% %  %<Esc>hi
 
-"Remove trailing whitespace
-nmap <leader>q :%s/\s\+$//<CR>
-nmap <leader>; :s/;\?$/;/<CR>:nohl<CR>``
+
+nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
 nmap <leader>d <Plug>Kwbd
-nmap <leader>s :ScratchOpen<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>st :Gstatus<CR>
-map <leader>a :Ack ''<Left>
 nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
