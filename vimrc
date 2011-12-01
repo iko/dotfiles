@@ -1,9 +1,8 @@
+call pathogen#infect()
 syntax enable
 
 let g:solarized_termcolors=256
 colorscheme solarized
-"colorscheme anotherdark
-"colorscheme molokai
 
 let mapleader = ","
 
@@ -68,18 +67,12 @@ filetype plugin indent on
 filetype plugin on
 
 runtime macros/matchit.vim
-runtime /home/iko/.vim/set_utf8.vim
 
-au BufNewFile,BufRead *.as set filetype=actionscript
-au BufNewFile,BufRead *.mxml set filetype=mxml
-au BufNewFile,BufRead *.ejs set filetype=xhtml
 au! BufRead,BufNewFile *.json setfiletype json
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-let g:vimchant_spellcheck_lang = 'fi'
-let g:molokai_original = 0
 let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
 let g:CommandTMatchWindowAtTop = 1
