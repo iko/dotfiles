@@ -31,3 +31,6 @@
 [submodule "vim/bundle/Kwbd.vim"]
 	path = vim/bundle/Kwbd.vim
 	url = https://github.com/rgarver/Kwbd.vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

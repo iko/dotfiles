@@ -32,8 +32,10 @@ inoremap %% %  %<Esc>hi
 
 nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
 nmap <leader>d <Plug>Kwbd
+nmap <leader>D :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
+map <leader>T :CommandTBuffer<CR>
 map <leader>st :Gstatus<CR>
 nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
@@ -74,5 +76,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
 let g:CommandTMatchWindowAtTop = 1
+
+let g:syntastic_auto_loc_list=1
+let g:syntastic_quiet_warnings=1
 
 iab ture true
