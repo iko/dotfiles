@@ -31,8 +31,8 @@ inoremap %% %  %<Esc>hi
 
 
 nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
-nmap <leader>d <Plug>Kwbd
-nmap <leader>D :lcl<CR>
+nmap <leader>D <Plug>Kwbd
+nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>T :CommandTBuffer<CR>
