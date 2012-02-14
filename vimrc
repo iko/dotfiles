@@ -1,3 +1,4 @@
+let g:pathogen_disabled = ["syntastic"]
 call pathogen#infect()
 set nocompatible
 syntax enable
@@ -33,6 +34,8 @@ inoremap %% %  %<Esc>hi
 nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
 nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
+nmap <leader>s :ScratchOpen<CR>
+nmap <leader>S :ScratchClose<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>T :CommandTBuffer<CR>
@@ -68,7 +71,7 @@ filetype plugin on
 
 runtime macros/matchit.vim
 
-au! BufRead,BufNewFile *.json setfiletype json
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
