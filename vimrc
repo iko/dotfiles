@@ -4,6 +4,7 @@ set nocompatible
 syntax enable
 
 let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
 
 let mapleader = ","
@@ -31,6 +32,7 @@ inoremap <> <><Esc>i
 inoremap %% %  %<Esc>hi
 
 
+nmap Y y$
 nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
 nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
@@ -65,6 +67,7 @@ set ruler
 set t_Co=256
 set guioptions=
 set nofoldenable
+set cursorline
 
 filetype plugin indent on
 filetype plugin on
