@@ -27,7 +27,7 @@
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/Kwbd.vim"]
 	path = vim/bundle/Kwbd.vim
 	url = https://github.com/rgarver/Kwbd.vim.git
@@ -43,3 +43,9 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/mustache"]
+	path = vim/bundle/mustache
+	url = https://github.com/juvenn/mustache.vim.git

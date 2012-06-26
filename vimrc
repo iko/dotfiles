@@ -4,7 +4,7 @@ set nocompatible
 syntax enable
 
 let g:solarized_termcolors=256
-set background=dark
+"set background=dark
 colorscheme solarized
 
 let mapleader = ","
@@ -75,6 +75,7 @@ filetype plugin on
 runtime macros/matchit.vim
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.hamstache set ft=haml
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -86,4 +87,9 @@ let g:CommandTMatchWindowAtTop = 1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_quiet_warnings=1
 
+let g:bufExplorerShowTabBuffer=1
+
 iab ture true
+iab widht width
+iab conosle console
+iab conosole console
