@@ -37,8 +37,6 @@ nmap Y y$
 nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
 nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
-nmap <leader>s :ScratchOpen<CR>
-nmap <leader>S :ScratchClose<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>T :CommandTBuffer<CR>
