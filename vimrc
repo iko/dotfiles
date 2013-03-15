@@ -1,5 +1,6 @@
 let g:pathogen_disabled = ["syntastic"]
 call pathogen#infect()
+call pathogen#helptags()
 set nocompatible
 syntax enable
 
