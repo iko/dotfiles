@@ -40,6 +40,7 @@ nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>T :CommandTBuffer<CR>
+map <leader>F :CommandTFlush<CR>
 map <leader>st :Gstatus<CR>
 nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
