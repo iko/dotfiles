@@ -1,11 +1,26 @@
-let g:pathogen_disabled = ["syntastic"]
-call pathogen#infect()
-call pathogen#helptags()
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 syntax enable
 
+Bundle "gmarik/vundle"
+
+Bundle "tpope/vim-fugitive"
+Bundle "altercation/vim-colors-solarized"
+Bundle "wincent/Command-T"
+Bundle "juvenn/mustache.vim"
+Bundle "scrooloose/nerdtree"
+Bundle "cclow/vim-bufexplorer"
+Bundle "kchmck/vim-coffee-script"
+Bundle "tpope/vim-haml"
+Bundle "pangloss/vim-javascript"
+Bundle "tpope/vim-markdown"
+Bundle "tpope/vim-surround"
+Bundle "vim-scripts/vimwiki"
+Bundle 'derekwyatt/vim-scala'
+
 let g:solarized_termcolors=256
-"set background=dark
 colorscheme solarized
 
 let mapleader = ","
@@ -15,8 +30,6 @@ imap <F1> <Esc>
 nmap <F2> :bn<CR>
 nmap <F3> :bp<CR>
 nmap <F4> :NERDTreeToggle<CR>
-" Grabbed from http://rffr.de/latex_tips
-map  :w!:!clear; echo Making Postscript % ...; pdflatex %; xdvi %<.dvi& 
 
 vmap <C-C> "+y
 
@@ -72,8 +85,6 @@ set cursorline
 filetype plugin indent on
 filetype plugin on
 
-runtime macros/matchit.vim
-
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.hamstache set ft=haml
 
@@ -83,9 +94,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
 let g:CommandTMatchWindowAtTop = 1
-
-let g:syntastic_auto_loc_list=1
-let g:syntastic_quiet_warnings=1
 
 let g:bufExplorerShowTabBuffer=1
 let g:bufExplorerShowRelativePath=1
