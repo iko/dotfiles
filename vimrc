@@ -2,26 +2,27 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-syntax enable
 
 Bundle "gmarik/vundle"
 
 Bundle "tpope/vim-fugitive"
+Bundle "kchmck/vim-coffee-script"
 Bundle "altercation/vim-colors-solarized"
 Bundle "wincent/Command-T"
 Bundle "juvenn/mustache.vim"
 Bundle "scrooloose/nerdtree"
 Bundle "cclow/vim-bufexplorer"
-Bundle "kchmck/vim-coffee-script"
 Bundle "tpope/vim-haml"
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/vimwiki"
+Bundle "rgarver/Kwbd.vim"
 Bundle 'derekwyatt/vim-scala'
 
 let g:solarized_termcolors=256
 colorscheme solarized
+syntax enable
 
 let mapleader = ","
 
