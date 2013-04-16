@@ -22,6 +22,7 @@ Bundle "derekwyatt/vim-scala"
 Bundle "duff/vim-scratch"
 
 let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
 syntax enable
 
