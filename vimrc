@@ -18,7 +18,8 @@ Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/vimwiki"
 Bundle "rgarver/Kwbd.vim"
-Bundle 'derekwyatt/vim-scala'
+Bundle "derekwyatt/vim-scala"
+Bundle "duff/vim-scratch"
 
 let g:solarized_termcolors=256
 colorscheme solarized
