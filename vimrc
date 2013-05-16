@@ -20,6 +20,8 @@ Bundle "vim-scripts/vimwiki"
 Bundle "rgarver/Kwbd.vim"
 Bundle "derekwyatt/vim-scala"
 Bundle "duff/vim-scratch"
+Bundle "b4winckler/vim-objc"
+Bundle "airblade/vim-rooter"
 
 let g:solarized_termcolors=256
 set background=dark
