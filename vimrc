@@ -93,6 +93,7 @@ filetype plugin on
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.hamstache set ft=haml
+autocmd BufRead,BufNewFile *.rabl setf ruby
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
