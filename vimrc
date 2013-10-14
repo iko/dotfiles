@@ -22,6 +22,7 @@ Bundle "derekwyatt/vim-scala"
 Bundle "duff/vim-scratch"
 Bundle "b4winckler/vim-objc"
 Bundle "airblade/vim-rooter"
+Bundle "tsaleh/vim-matchit"
 
 let g:solarized_termcolors=256
 set background=dark
