@@ -105,6 +105,8 @@ let g:CommandTMatchWindowAtTop = 1
 let g:bufExplorerShowTabBuffer=1
 let g:bufExplorerShowRelativePath=1
 
+let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" . ",**/node_modules/*"
+
 iab ture true
 iab widht width
 iab conosle console
