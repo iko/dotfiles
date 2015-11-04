@@ -1,0 +1,28 @@
+[user]
+	name = Ville Ikonen
+	email = ikonen@gmail.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = always
+	ui = true
+[alias]
+	st = status
+	dif = diff
+	commti = commit
+	co = checkout
+	diffc = diff --cached
+	tst = status
+	fuckit = reset --hard
+	undo = reset --soft HEAD~1
+	tlog = log
+	logg = log --graph --pretty=\"format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'\" --abbrev-commit --date=relative
+	g = grep --break --heading --line-number
+[merge]
+	log = true
+[core]
+	editor = /usr/bin/vim
+[push]
+	default = current
