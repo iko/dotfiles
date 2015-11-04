@@ -1,0 +1,61 @@
+# Screens
+alias mon-laptop 1440x900
+alias mon-imac 2560x1440
+
+# Position
+alias laptop-fullscreen move screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
+alias imac-left-60 move screenOriginX;screenOriginY screenSizeX/10*6;screenSizeY ${mon-imac}
+alias imac-right-40 move screenOriginX+screenSizeX/10*6;screenOriginY screenSizeX/10*4;screenSizeY ${mon-imac}
+alias imac-right-50 move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${mon-imac}
+alias imac-left-50 move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${mon-imac}
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Push Bindings
+bind right:shift;cmd  push right bar-resize:screenSizeX/10*4
+bind left:shift;cmd   push left  bar-resize:screenSizeX/10*6
+bind up:shift;cmd     push up    bar-resize:screenSizeY/2
+bind down:shift;cmd   push down  bar-resize:screenSizeY/2
+bind return:shift;cmd push up bar-resize:screenSizeY
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+bind right:ctrl;alt;cmd throw right resize
+bind left:ctrl;alt;cmd  throw left  resize
+bind up:ctrl;alt;cmd    throw up    resize
+bind down:ctrl;alt;cmd  throw down  resize
+
+
+# Apps
+bind h:cmd;shift focus 'Google Chrome'
+bind g:cmd;shift focus 'Android Studio'
+bind k:cmd;shift focus 'iTerm'
+bind l:cmd;shift focus 'Firefox'
+bind a:cmd;shift focus 'Flowdock'
+bind j:cmd;shift focus 'MacVim'
+bind s:cmd;shift focus 'Spotify'
+
+layout 2monitors "MacVim" ${imac-left-60}
+layout 2monitors "Google Chrome" ${imac-left-60}
+layout 2monitors "Android Studio" ${imac-left-60}
+layout 2monitors "Firefox" ${laptop-fullscreen}
+layout 2monitors "Spotify" ${laptop-fullscreen}
+layout 2monitors "iTerm" ${imac-right-40}
+layout 2monitors "Flowdock" ${laptop-fullscreen}
+
+layout noMonitor "iTerm" ${laptop-fullscreen}
+layout noMonitor "Firefox" ${laptop-fullscreen}
+layout noMonitor "Spotify" ${laptop-fullscreen}
+layout noMonitor "Google Chrome" ${laptop-fullscreen}
+layout noMonitor "MacVim" ${laptop-fullscreen}
+layout noMonitor "Android Studio" ${laptop-fullscreen}
+layout noMonitor "Flowdock" ${laptop-fullscreen}
+
+default noMonitor count:1
+default 2monitors count:2
+
+bind 1:cmd;shift layout noMonitor
+bind 2:cmd;shift layout 2monitors
