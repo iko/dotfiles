@@ -1,28 +1,31 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle "gmarik/vundle"
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle "tpope/vim-fugitive"
-Bundle "kchmck/vim-coffee-script"
-Bundle "altercation/vim-colors-solarized"
-Bundle "wincent/Command-T"
-Bundle "juvenn/mustache.vim"
-Bundle "scrooloose/nerdtree"
-Bundle "cclow/vim-bufexplorer"
-Bundle "tpope/vim-haml"
-Bundle "pangloss/vim-javascript"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-surround"
-Bundle "vim-scripts/vimwiki"
-Bundle "rgarver/Kwbd.vim"
-Bundle "derekwyatt/vim-scala"
-Bundle "duff/vim-scratch"
-Bundle "b4winckler/vim-objc"
-Bundle "airblade/vim-rooter"
-Bundle "tsaleh/vim-matchit"
+Plugin 'tpope/vim-fugitive'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'juvenn/mustache.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'cclow/vim-bufexplorer'
+Plugin 'tpope/vim-haml'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/vimwiki'
+Plugin 'rgarver/Kwbd.vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'duff/vim-scratch'
+Plugin 'b4winckler/vim-objc'
+Plugin 'airblade/vim-rooter'
+Plugin 'mtscout6/vim-cjsx'
+
+call vundle#end()
+
 
 let g:solarized_termcolors=256
 set background=dark
@@ -58,8 +61,7 @@ nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
-map <leader>T :CommandTBuffer<CR>
-map <leader>F :CommandTFlush<CR>
+map <leader>t :CtrlPMixed<CR>
 map <leader>st :Gstatus<CR>
 nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
@@ -100,7 +102,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 let NERDTreeWinPos = 1
 let NERDTreeShowBookmarks = 1
-let g:CommandTMatchWindowAtTop = 1
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
 let g:bufExplorerShowTabBuffer=1
 let g:bufExplorerShowRelativePath=1
