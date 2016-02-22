@@ -1,36 +1,32 @@
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'juvenn/mustache.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'cclow/vim-bufexplorer'
+Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/vimwiki'
+Plug 'rgarver/Kwbd.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'duff/vim-scratch'
+Plug 'b4winckler/vim-objc'
+Plug 'airblade/vim-rooter'
+Plug 'mtscout6/vim-cjsx'
+Plug 'mxw/vim-jsx'
+Plug 'JulesWang/css.vim'
+Plug 'milkypostman/vim-togglelist'
+Plug 'junegunn/seoul256.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
-Plugin 'juvenn/mustache.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'cclow/vim-bufexplorer'
-Plugin 'tpope/vim-haml'
-Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/vimwiki'
-Plugin 'rgarver/Kwbd.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'duff/vim-scratch'
-Plugin 'b4winckler/vim-objc'
-Plugin 'airblade/vim-rooter'
-Plugin 'mtscout6/vim-cjsx'
+call plug#end()
 
-call vundle#end()
-
-
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
-syntax enable
+colorscheme seoul256
 
 let mapleader = ","
 
@@ -38,7 +34,6 @@ map <F1> <Esc>
 imap <F1> <Esc>
 nmap <F2> :bn<CR>
 nmap <F3> :bp<CR>
-nmap <F4> :NERDTreeToggle<CR>
 
 vmap <C-C> "+y
 
@@ -56,16 +51,18 @@ inoremap %% %  %<Esc>hi
 
 
 nmap Y y$
-nmap <leader>q :%s/\s\+$//<CR> "Remove trailing whitespace
+nmap <leader>w :NERDTreeToggle<CR>
 nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>t :CtrlPMixed<CR>
+nnoremap <D-o> :CtrlPMixed<CR>
 map <leader>st :Gstatus<CR>
 nmap <leader>e :BufExplorer<CR>
 nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
 
+command W w
 
 set expandtab
 retab
@@ -76,21 +73,22 @@ set smartcase
 set smartindent
 set autoindent
 set list
-set lcs=trail:·,tab:\|\ 
+set lcs=trail:·,tab:\|\
 set scrolloff=3
 set hidden
 set nostartofline
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set noswapfile
 set statusline=%<%f\ %{fugitive#statusline()}%h%m%r%=%t\ \|\ %-14.(%l,%c%V%)\ %P
 set laststatus=2
 set ruler
-set t_Co=256
 set guioptions=
 set nofoldenable
 set cursorline
+set number
+set relativenumber
 
-filetype plugin indent on
 filetype plugin on
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -107,7 +105,9 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 let g:bufExplorerShowTabBuffer=1
 let g:bufExplorerShowRelativePath=1
 
+set wildignore+=**/node_modules/*,build/**,dist/**
 let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" . ",**/node_modules/*"
+let g:toggle_list_copen_command="botright copen"
 
 iab ture true
 iab widht width
