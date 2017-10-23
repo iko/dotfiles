@@ -3,10 +3,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
-Plug 'kien/ctrlp.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'cclow/vim-bufexplorer'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
@@ -22,6 +20,15 @@ Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/seoul256.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
+Plug 'flowtype/vim-flow'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -49,6 +56,9 @@ inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
 inoremap %% %  %<Esc>hi
 
+if has("nvim")
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 nmap Y y$
 nmap <leader>w :NERDTreeToggle<CR>
@@ -56,13 +66,17 @@ nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
-map <leader>t :CtrlPMixed<CR>
-nnoremap <D-o> :CtrlPMixed<CR>
+map <leader>t :Files<CR>
+map <leader>f :Ag<CR>
+nmap <leader>e :Buffers<CR>
 map <leader>st :Gstatus<CR>
-nmap <leader>e :BufExplorer<CR>
-nnoremap <leader>dt "=strftime("%H:%M %d.%m %Y")<CR>p
-
-command W w
+nnoremap <leader>dt "=strftime("=== Week %U - %A %d.%m %Y ===")<CR>p
+nnoremap th :tabfirst<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap td :tabclose<CR>
+command! W w
 
 set expandtab
 retab
@@ -98,18 +112,26 @@ autocmd BufRead,BufNewFile *.rabl setf ruby
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-let NERDTreeWinPos = 1
+let NERDTreeWinPos = 'left'
 let NERDTreeShowBookmarks = 1
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
-let g:bufExplorerShowTabBuffer=1
-let g:bufExplorerShowRelativePath=1
+let g:vimwiki_list = [{'path':'~/Dropbox/vimwiki', 'path_html':'~/Dropbox/vimwiki/html/'}]
 
 set wildignore+=**/node_modules/*,build/**,dist/**
-let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" . ",**/node_modules/*"
 let g:toggle_list_copen_command="botright copen"
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 iab ture true
 iab widht width
 iab conosle console
 iab conosole console
+
+" print semicolons
+let g:prettier#config#semi = 'true'
+
+" single quotes over double quotes
+let g:prettier#config#single_quote = 'true'
+
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
