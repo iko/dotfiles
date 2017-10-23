@@ -1,9 +1,10 @@
 # Screens
 alias mon-laptop 1440x900
-alias mon-imac 2560x1440
+alias mon-imac 1920x1080
 
 # Position
 alias laptop-fullscreen move screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
+alias imac-fullscreen move screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-imac}
 alias imac-left-60 move screenOriginX;screenOriginY screenSizeX/10*6;screenSizeY ${mon-imac}
 alias imac-right-40 move screenOriginX+screenSizeX/10*6;screenOriginY screenSizeX/10*4;screenSizeY ${mon-imac}
 alias imac-right-50 move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${mon-imac}
@@ -30,23 +31,23 @@ bind down:ctrl;alt;cmd  throw down  resize
 
 
 # Apps
-bind h:cmd;shift focus 'Google Chrome'
+bind h:cmd;shift focus 'Firefox'
 bind g:cmd;shift focus 'Android Studio'
-bind k:cmd;shift focus 'iTerm'
-bind l:cmd;shift focus 'Firefox'
+bind k:cmd;shift focus 'iTerm2'
+bind l:cmd;shift focus 'Google Chrome'
 bind a:cmd;shift focus 'Flowdock'
 bind j:cmd;shift focus 'MacVim'
 bind s:cmd;shift focus 'Spotify'
 
 layout 2monitors "MacVim" ${imac-left-60}
 layout 2monitors "Google Chrome" ${imac-left-60}
-layout 2monitors "Android Studio" ${imac-left-60}
-layout 2monitors "Firefox" ${laptop-fullscreen}
+layout 2monitors "Android Studio" ${imac-fullscreen}
+layout 2monitors "Firefox" ${imac-left-60}
 layout 2monitors "Spotify" ${laptop-fullscreen}
-layout 2monitors "iTerm" ${imac-right-40}
+layout 2monitors "iTerm2" ${imac-fullscreen}
 layout 2monitors "Flowdock" ${laptop-fullscreen}
 
-layout noMonitor "iTerm" ${laptop-fullscreen}
+layout noMonitor "iTerm2" ${laptop-fullscreen}
 layout noMonitor "Firefox" ${laptop-fullscreen}
 layout noMonitor "Spotify" ${laptop-fullscreen}
 layout noMonitor "Google Chrome" ${laptop-fullscreen}
