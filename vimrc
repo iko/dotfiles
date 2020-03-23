@@ -9,13 +9,10 @@ Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'rgarver/Kwbd.vim'
-Plug 'derekwyatt/vim-scala'
 Plug 'duff/vim-scratch'
-Plug 'b4winckler/vim-objc'
 Plug 'airblade/vim-rooter'
-Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
 Plug 'milkypostman/vim-togglelist'
@@ -29,6 +26,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -36,11 +34,6 @@ set background=dark
 colorscheme seoul256
 
 let mapleader = ","
-
-map <F1> <Esc>
-imap <F1> <Esc>
-nmap <F2> :bn<CR>
-nmap <F3> :bp<CR>
 
 vmap <C-C> "+y
 
@@ -62,6 +55,7 @@ endif
 
 nmap Y y$
 nmap <leader>w :NERDTreeToggle<CR>
+nmap <leader>g :Goyo<CR>
 nmap <leader>D <Plug>Kwbd
 nmap <leader>d :lcl<CR>
 map <leader>p :set invpaste<CR>
@@ -70,7 +64,8 @@ map <leader>t :Files<CR>
 map <leader>f :Ag<CR>
 nmap <leader>e :Buffers<CR>
 map <leader>st :Gstatus<CR>
-nnoremap <leader>dt "=strftime("=== Week %U - %A %d.%m %Y ===")<CR>p
+" nnoremap <leader>dt "=strftime("#### %A %d.%m.%Y ####")<CR>p
+nnoremap <leader>dt "=strftime("-----\n\n==== %A %d.%m.%Y ====\n\n")<CR>p
 nnoremap th :tabfirst<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tk :tabprev<CR>
@@ -86,6 +81,7 @@ set ignorecase
 set smartcase
 set smartindent
 set autoindent
+set autoread
 set list
 set lcs=trail:·,tab:\|\
 set scrolloff=3
@@ -102,12 +98,14 @@ set nofoldenable
 set cursorline
 set number
 set relativenumber
+set mouse=a
 
 filetype plugin on
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.hamstache set ft=haml
 autocmd BufRead,BufNewFile *.rabl setf ruby
+autocmd FocusGained,BufEnter * :checktime
 
 " Don't comment automatically
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -116,6 +114,8 @@ let NERDTreeWinPos = 'left'
 let NERDTreeShowBookmarks = 1
 
 let g:vimwiki_list = [{'path':'~/Dropbox/vimwiki', 'path_html':'~/Dropbox/vimwiki/html/'}]
+let g:vimwiki_conceallevel = 0
+let g:vimwiki_url_maxsave = 0
 
 set wildignore+=**/node_modules/*,build/**,dist/**
 let g:toggle_list_copen_command="botright copen"

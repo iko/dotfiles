@@ -23,6 +23,6 @@
 [merge]
 	log = true
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/nvim
 [push]
 	default = current
