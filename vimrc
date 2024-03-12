@@ -15,6 +15,7 @@ Plug 'duff/vim-scratch'
 Plug 'airblade/vim-rooter'
 Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
+Plug 'slim-template/vim-slim.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/seoul256.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -27,11 +28,19 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/goyo.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 call plug#end()
 
 set background=dark
 colorscheme seoul256
+
+lang en_US.UTF-8
 
 let mapleader = ","
 
@@ -40,14 +49,16 @@ vmap <C-C> "+y
 noremap <Up> gk
 noremap <Down> gj
 
-inoremap () ()<Esc>i
+inoremap "" ""<Esc>i
 inoremap {} {}<Esc>i
 inoremap [] []<Esc>i
-
-inoremap "" ""<Esc>i
+inoremap () ()<Esc>i
 inoremap '' ''<Esc>i
 inoremap <> <><Esc>i
 inoremap %% %  %<Esc>hi
+
+" coc confirm selection
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 if has("nvim")
   tnoremap <Esc> <C-\><C-n>
@@ -62,10 +73,12 @@ map <leader>p :set invpaste<CR>
 map <leader>b :Gblame<CR>
 map <leader>t :Files<CR>
 map <leader>f :Ag<CR>
+map <leader>j :bnext<CR>
+map <leader>k :bprev<CR>
 nmap <leader>e :Buffers<CR>
 map <leader>st :Gstatus<CR>
 " nnoremap <leader>dt "=strftime("#### %A %d.%m.%Y ####")<CR>p
-nnoremap <leader>dt "=strftime("-----\n\n==== %A %d.%m.%Y ====\n\n")<CR>p
+nnoremap <leader>dt "=strftime("-----\n\n==== %A %d.%m.%Y ====\n\n")<CR>p3j
 nnoremap th :tabfirst<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tk :tabprev<CR>
@@ -99,11 +112,13 @@ set cursorline
 set number
 set relativenumber
 set mouse=a
+nohlsearch
 
 filetype plugin on
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.hamstache set ft=haml
+autocmd BufNewFile,BufRead *.slim set ft=slim
 autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd FocusGained,BufEnter * :checktime
 

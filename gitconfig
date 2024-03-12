@@ -10,6 +10,7 @@
 	ui = true
 [alias]
 	st = status
+  unpushed = log --branches --not --remotes --no-walk --decorate --oneline
 	dif = diff
 	commti = commit
 	co = checkout
@@ -26,3 +27,8 @@
 	editor = /usr/local/bin/nvim
 [push]
 	default = current
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true
