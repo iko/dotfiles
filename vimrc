@@ -15,7 +15,6 @@ Plug 'duff/vim-scratch'
 Plug 'airblade/vim-rooter'
 Plug 'mxw/vim-jsx'
 Plug 'JulesWang/css.vim'
-Plug 'slim-template/vim-slim.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/seoul256.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -85,6 +84,7 @@ nnoremap tk :tabprev<CR>
 nnoremap tl :tablast<CR>
 nnoremap td :tabclose<CR>
 command! W w
+
 
 set expandtab
 retab
